@@ -1,0 +1,62 @@
+* {
+  font-family: "Lato", sans-serif;
+}
+
+@font-face {
+  font-family: BBPU;
+  src: url("/fonts/BBPU.ttf");
+}
+
+#header {
+    margin: 20px;
+  font-family: BBPU;
+  text-align: center;
+  font-size: 55px;
+}
+
+.metadata{
+    
+    margin: 20px ;
+}
+.first{
+    margin-bottom: 10px;
+}
+
+.formhead{
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.fieldName{
+    font-size: 20px;
+}
+
+.table-wrapper{
+    margin: 10px;
+}
+
+.sectionname{
+    text-align: center;
+    margin: 40px 20px 20px 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 461px){
+    #header {
+        margin: 20px;
+      text-align: center;
+      font-size: 40px;
+    }
+    .formhead{
+        font-size: 17px;
+    }
+    .fieldName{
+        font-size: 15px;
+    }
+    .sectionname{
+        font-size: 19px;
+    }
+    
+}
