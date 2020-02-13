@@ -4,6 +4,10 @@ FormAssist allows users to add data both manually and through third-party integr
 ## Objective- 
 Creating an app to automate the filling of bank forms and to reduce the redundancy in the job on both the sides i.e. on the user as well as bankside to a large extent. The app also tries to support the concept of zero typing to a large extent.
 
+## Screenshots - 
+Image 1             |  Image 2
+:-------------------------:|:-------------------------:
+![](docs/demo_1.png)  |  ![](docs/demo_1.png)
 
 ## Workflow And Description of the App
 
