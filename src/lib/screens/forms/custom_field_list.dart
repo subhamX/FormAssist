@@ -512,9 +512,6 @@ class _CustomFieldListState extends State<CustomFieldList> {
                   ),
                   FormBuilder(
                     key: _fbKey,
-                    initialValue: {
-                      'date': DateTime.now(),
-                    },
                     child: Column(children: [
                       ...snapshot.data,
                     ]),

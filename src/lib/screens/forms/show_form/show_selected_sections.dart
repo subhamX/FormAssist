@@ -42,6 +42,8 @@ class _ShowSelectedSectionsState extends State<ShowSelectedSections> {
       DocumentSnapshot form = await formRef.get();
       _formName = form.data["form_name"];
       _formType = form.data["bank_form_name"];
+      setData(_formName);
+      setDataFT(_formType);
       if (form.exists) {
         CollectionReference sectionsRef = formRef.collection('section');
         QuerySnapshot sections = await sectionsRef.getDocuments();

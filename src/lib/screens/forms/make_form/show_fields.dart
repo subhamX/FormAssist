@@ -314,9 +314,6 @@ class _ShowFieldsState extends State<ShowFields> {
                     children: [
                       FormBuilder(
                         key: _fbKey,
-                        initialValue: {
-                          'date': DateTime.now(),
-                        },
                         child: Column(children: [
                           Text(
                             "FORM BUILDER",

@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:form_assist/screens/home.dart';
 
-// --> uncomment Add the below code to call ErrorPage window <--
-// _error (BuildContext context){
-//   showDialog(
-//     context: context,
-//     builder: (BuildContext context){
-//       return ErrorPage();
-//     }
-//     );
-// }
+
 
 class ErrorPage extends StatefulWidget {
   @override
@@ -20,8 +11,13 @@ class _ErrorPageState extends State<ErrorPage> {
   String errorMsg;
   @override
   Widget build(BuildContext context) {
-    Map args = Map.from(ModalRoute.of(context).settings.arguments);
-    errorMsg = args["msg"] == null ? 'Something Went Wrong!' : args['msg'];
+    if (ModalRoute.of(context).settings.arguments != null) {
+      Map args = Map.from(ModalRoute.of(context).settings.arguments);
+      errorMsg = args["msg"];
+    } else {
+      errorMsg = 'Something Went Wrong!';
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -111,6 +107,3 @@ class _ErrorPageState extends State<ErrorPage> {
     );
   }
 }
-
-
-

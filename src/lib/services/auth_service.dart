@@ -103,7 +103,7 @@ class AuthService {
       }
     } catch (err) {
       if (err.code == 'ERROR_USER_DISABLED') {
-        Navigator.pushNamed(context, 'error_page',
+        Navigator.pushReplacementNamed(context, 'error_page',
             arguments: {"msg": "User Not Allowed"});
       } else {
         Flushbar(
@@ -178,7 +178,7 @@ class AuthService {
       }
     } catch (err) {
       if (err.code == 'ERROR_USER_DISABLED') {
-        Navigator.pushNamed(context, 'error_page',
+        Navigator.pushReplacementNamed(context, 'error_page',
             arguments: {"msg": "User Not Allowed"});
       }
     }

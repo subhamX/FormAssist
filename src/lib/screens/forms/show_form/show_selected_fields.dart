@@ -9,6 +9,7 @@ import 'package:form_assist/screens/loaders/loading.dart';
 import 'package:form_assist/screens/loaders/loadingbox.dart';
 import 'package:form_assist/services/Speech2Text.dart';
 import 'package:form_assist/services/Text2Speech.dart';
+import 'dart:convert';
 
 class ShowSelectedFields extends StatefulWidget {
   @override
@@ -116,7 +117,6 @@ class _ShowSelectedFieldsState extends State<ShowSelectedFields> {
     DocumentSnapshot form = await formRef.get();
     if (form.exists) {
       // Traversing All Fields Inside section
-
       mainData.add(
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 16, 0),
@@ -181,13 +181,14 @@ class _ShowSelectedFieldsState extends State<ShowSelectedFields> {
           .document(sectionID)
           .collection('fields')
           .orderBy('degree');
+        
       QuerySnapshot fields = await fieldsRef.getDocuments();
       fields.documents.forEach((field) {
         String type = field["type"];
         String docID = field.documentID;
         List options;
         try {
-          options = List.from(field["fields"]);
+          options = json.decode(field["fields"]);
           options.insert(0, '-');
         } catch (err) {
           print(err);
@@ -340,11 +341,8 @@ class _ShowSelectedFieldsState extends State<ShowSelectedFields> {
       sectionName = args["section_name"];
       formName = args["formName"];
       uid = args["uid"];
-      // formId = 'DZdvdm333eGs04Fg0jYN';
-      // uid = 'ZZ0OtuI66beDmrChXF01367apH32';
     } catch (error) {
       print(error);
-      // Navigator.pushNamed(context, 'error');
     }
     return FutureBuilder(
       future: getFields(),
@@ -404,9 +402,6 @@ class _ShowSelectedFieldsState extends State<ShowSelectedFields> {
                       children: <Widget>[
                         FormBuilder(
                           key: _fbKey,
-                          initialValue: {
-                            'date': DateTime.now(),
-                          },
                           autovalidate: true,
                           child: Column(
                             children: <Widget>[
