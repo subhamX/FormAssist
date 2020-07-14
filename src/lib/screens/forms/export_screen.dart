@@ -119,7 +119,7 @@ class _ExportScreenState extends State<ExportScreen> {
         QuerySnapshot fields = await fieldsRef.getDocuments();
         int fSize = fields.documents.length;
         for (int j = 0; j < fSize; j++) {
-          if (fields.documents[i].data["value"].toString().isEmpty) {
+          if (fields.documents[j].data["value"].toString().isEmpty) {
             count++;
           }
         }
@@ -448,6 +448,7 @@ class _ExportScreenState extends State<ExportScreen> {
             ),
           );
         } else if (snapshot.hasError) {
+          print(snapshot.error);
           return ErrorPage();
         } else {
           return LoadingScreen();
