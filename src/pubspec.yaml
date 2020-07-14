@@ -1,0 +1,55 @@
+name: form_assist
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_auth:
+  cloud_firestore: 
+  clipboard_manager: 
+  firebase_ml_vision: 
+  flushbar: 
+  google_sign_in: 
+  flutter_form_builder : 
+  speech_recognition: 
+  flutter_tts: 
+  flutter_spinkit: 
+  cupertino_icons: 
+  permission_handler: 
+  http: 
+  intro_views_flutter: 
+  image_picker:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.7.3"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.png"
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+   - assets/
+   - assets/images/
+   - assets/explore/
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato.ttf
+    - family: BBPU
+      fonts:
+        - asset: fonts/BBPU.ttf
