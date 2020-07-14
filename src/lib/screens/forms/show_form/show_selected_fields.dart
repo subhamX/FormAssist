@@ -9,7 +9,6 @@ import 'package:form_assist/screens/loaders/loading.dart';
 import 'package:form_assist/screens/loaders/loadingbox.dart';
 import 'package:form_assist/services/Speech2Text.dart';
 import 'package:form_assist/services/Text2Speech.dart';
-import 'dart:convert';
 
 class ShowSelectedFields extends StatefulWidget {
   @override
@@ -188,8 +187,12 @@ class _ShowSelectedFieldsState extends State<ShowSelectedFields> {
         String docID = field.documentID;
         List options;
         try {
-          options = json.decode(field["fields"]);
-          options.insert(0, '-');
+          options = field["fields"].replaceAll('[', '').replaceAll(']', '').split(',');
+          if(options[0]==''){
+            options = [];
+          }else{
+            options.insert(0, '-');
+          }
         } catch (err) {
           print(err);
         }
