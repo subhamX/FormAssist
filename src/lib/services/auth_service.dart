@@ -53,12 +53,17 @@ class AuthService {
       }
     } catch (err) {
       print(err);
-      Flushbar(
-        message: "Email Already In Use",
-        duration: Duration(milliseconds: 600),
-      ).show(context);
-      await Future.delayed(Duration(milliseconds: 700));
-      Navigator.pop(context);
+      if (err.code == 'ERROR_USER_DISABLED') {
+        Navigator.pushNamed(context, 'error_page',
+            arguments: {"msg": "User Not Allowed"});
+      } else {
+        Flushbar(
+          message: "Email Already In Use",
+          duration: Duration(milliseconds: 600),
+        ).show(context);
+        await Future.delayed(Duration(milliseconds: 700));
+        Navigator.pop(context);
+      }
     }
   }
 
@@ -97,14 +102,18 @@ class AuthService {
         Navigator.pushReplacementNamed(context, 'home');
       }
     } catch (err) {
-      Flushbar(
-        message: "Incorrect Email or Password!",
-        duration: Duration(seconds: 1),
-      ).show(context);
-      await Future.delayed(Duration(seconds: 1, milliseconds: 100));
-      Navigator.pop(context);
-
-      print(err);
+      if (err.code == 'ERROR_USER_DISABLED') {
+        Navigator.pushNamed(context, 'error_page',
+            arguments: {"msg": "User Not Allowed"});
+      } else {
+        Flushbar(
+          message: "Incorrect Email or Password!",
+          duration: Duration(seconds: 1),
+        ).show(context);
+        await Future.delayed(Duration(seconds: 1, milliseconds: 100));
+        Navigator.pop(context);
+        print(err);
+      }
     }
   }
 
@@ -164,12 +173,14 @@ class AuthService {
           'last_seen': DateTime.now(),
         });
       }
-
       if (!user.isAnonymous) {
         Navigator.pushReplacementNamed(context, 'home');
       }
     } catch (err) {
-      print(err);
+      if (err.code == 'ERROR_USER_DISABLED') {
+        Navigator.pushNamed(context, 'error_page',
+            arguments: {"msg": "User Not Allowed"});
+      }
     }
   }
 
@@ -180,6 +191,8 @@ class AuthService {
       Navigator.pushReplacementNamed(context, 'signin');
     } catch (err) {
       print(err);
+      Navigator.pushNamed(context, 'error_page',
+          arguments: {"msg": "User Not Allowed"});
     }
   }
 }

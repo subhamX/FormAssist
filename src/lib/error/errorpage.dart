@@ -11,13 +11,17 @@ import 'package:flutter/material.dart';
 //     );
 // }
 
-class ErrorPage extends StatelessWidget {
-  final errorMsg;
-  ErrorPage({this.errorMsg = 'Something Went Wrong'});
+class ErrorPage extends StatefulWidget {
+  @override
+  _ErrorPageState createState() => _ErrorPageState();
+}
+
+class _ErrorPageState extends State<ErrorPage> {
+  String errorMsg;
   @override
   Widget build(BuildContext context) {
-    // Map args = Map.from(ModalRoute.of(context).settings.arguments);
-    // errorMsg = args["msg"];
+    Map args = Map.from(ModalRoute.of(context).settings.arguments);
+    errorMsg = args["msg"] == null ? 'Something Went Wrong!' : args['msg'];
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -107,3 +111,6 @@ class ErrorPage extends StatelessWidget {
     );
   }
 }
+
+
+
