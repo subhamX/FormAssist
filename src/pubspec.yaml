@@ -13,7 +13,6 @@ dependencies:
     sdk: flutter
   firebase_auth:
   cloud_firestore: 
-  clipboard_manager: 
   firebase_ml_vision: 
   flushbar: 
   google_sign_in: 
@@ -26,6 +25,7 @@ dependencies:
   http: 
   intro_views_flutter: 
   image_picker:
+  clipboard: ^0.1.2+8
 
 dev_dependencies:
   flutter_test:

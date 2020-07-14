@@ -1,7 +1,6 @@
-import 'package:clipboard_manager/clipboard_manager.dart';
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:form_assist/common/common.dart';
-// import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:form_assist/error/errorpage.dart';
@@ -104,8 +103,7 @@ class _LinksState extends State<Links> {
               },
               onTap: () async {
                 // On Click Copying Link to ClipBoard and Showing FlushBar
-                await ClipboardManager.copyToClipBoard(
-                    Common.appUrl + link["slug"]);
+                await FlutterClipboard.copy(Common.appUrl + link["slug"]);
                 Flushbar(
                   message: "Copied to Clipboard",
                   duration: Duration(seconds: 2),

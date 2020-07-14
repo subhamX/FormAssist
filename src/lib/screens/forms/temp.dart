@@ -1,5 +1,4 @@
-// import 'package:clipboard_manager/clipboard_manager.dart';
-import 'package:clipboard_manager/clipboard_manager.dart';
+import 'package:clipboard/clipboard.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:form_assist/common/common.dart';
@@ -168,13 +167,12 @@ class _ExportScreenState extends State<ExportScreen> {
       print(json);
       if (json["error"] == false) {
         Navigator.of(context).pop();
-        ClipboardManager.copyToClipBoard(Common.appUrl + json["url"])
-            .then((result) {
-          Flushbar(
-            message: "Link Copied to Clipboard!",
-            duration: Duration(seconds: 2),
-          ).show(context);
-        });
+        FlutterClipboard.copy(Common.appUrl + json["url"]).then((value) => {
+              Flushbar(
+                message: "Link Copied to Clipboard!",
+                duration: Duration(seconds: 2),
+              ).show(context)
+            });
         await Future.delayed(Duration(seconds: 2, milliseconds: 100));
         Navigator.pop(context);
         Navigator.pop(context);
