@@ -42,7 +42,3 @@ Once a user feels that his form to be forwarded to the bank is ready then he can
 * The user at no point has to type anything as other modes of taking information have been provided.
 * The user at any point of time sign out of the app by clicking on the Sign-Out option provided at the navigation bar and can return to the home page by clicking on the Form Assist icon provided in the same.
 
-
-# APK and Access Token
-
-This project uses firebase authentication, ML vision and cloud firestore. If you wish to access the production build please email me. :)

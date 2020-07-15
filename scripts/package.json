@@ -10,11 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "googleapis": "^39.2.0",
-    "firebase-admin": "^8.6.0",
-    "firebase-functions": "^3.3.0"
+    "firebase-admin": "^8.13.0",
+    "firebase-functions": "^3.8.0",
+    "googleapis": "^39.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.4"
   }
 }
